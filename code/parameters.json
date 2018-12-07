@@ -6,10 +6,10 @@
             "value": "westeurope"
         },
         "networkInterfaceName": {
-            "value": null
+            "value": "ccnic2"
         },
         "networkSecurityGroupName": {
-            "value": "cc-eu-test-nsg2"
+            "value": "cc-eu-test-nsg4"
         },
         "networkSecurityGroupRules": {
             "value": [
@@ -32,7 +32,7 @@
             "value": "default"
         },
         "virtualNetworkName": {
-            "value": "CCEU-vnet-2"
+            "value": "CCEU-vnet-4"
         },
         "addressPrefixes": {
             "value": [
@@ -50,7 +50,7 @@
             ]
         },
         "publicIpAddressName": {
-            "value": "cc-eu-test-ip2"
+            "value": "cc-eu-test-ip4"
         },
         "publicIpAddressType": {
             "value": "Dynamic"
@@ -59,10 +59,10 @@
             "value": "Basic"
         },
         "virtualMachineName": {
-            "value": "cc-eu-test2"
+            "value": "cc-eu-test3"
         },
         "virtualMachineRG": {
-            "value": "CCEU-2"
+            "value": "CCEU"
         },
         "osDiskType": {
             "value": "StandardSSD_LRS"
@@ -74,10 +74,10 @@
             "value": "jmerelo"
         },
         "adminPublicKey": {
-            "value": null
+            "value": "GEN-SSH-PUBLIC-KEY"
         },
         "diagnosticsStorageAccountName": {
-            "value": "cceudiag2"
+            "value": "cceudiag4"
         },
         "diagnosticsStorageAccountId": {
             "value": "Microsoft.Storage/storageAccounts/cceudiag"
