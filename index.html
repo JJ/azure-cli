@@ -38,7 +38,7 @@ src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
 	  <h2><code>@jjmerelo</code> para <a href='https://www.meetup.com/es-ES/Granada-Geek/'>Granada Geek</a> + @iv_gii</h2>
 	</section>
 
-	<section>
+	<section data-background='https://farm5.staticflickr.com/4857/46233248981_1730df6cfb_k_d.jpg' alt='Stallman y su imagen'>
 	  <blockquote>La nube son los ordenadores de otros</blockquote></section>
 
 	<section><h2>Pero...</h2>
@@ -60,8 +60,25 @@ src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
 
 	<!-- Conceptos fundamentales -->
 	<section>
-	  <section><h1>Se paga a través de una <strong>suscripción</strong>
+	  <section><h1>Conéctate a tu cuenta</h1>
+	    <pre><code>az login</code></pre>
+	    <aside class='notes'>Supongamos que tienes tu propia cuenta, aunque no es la única forma de conectar un ordenador a la cuenta en Azure. Alguien te puede haber dado permisos, o puede haber creado un <em>service principal</em></aside>
+	  </section>
+	  <section><h1>Lista tus suscripciones</h1>
+	    <pre><code>az account list</code></pre>
+	    <img src='img/account.png' alt='cuenta en json'>
+	    <aside class='notes'>El resultado está en JSON, pero se puede filtrar de muchas maneras diferentes. Pero veamos antes cosas básicas de estos comandos.</aside>
+	  </section>
+
+	  <section>
+	    <pre><code>az account list</code></pre>
+	    <pre class='fragment'><code>az orden   suborden</code></pre>
+	    <h2 class='fragment'>⇒Resultado en JSON</h2>
+	  </section>
+	  <section><h1>Elige tu <strong>suscripción</strong>
 	    </h1>
+
+	    <pre><code>az account set --subscription c6d4056e-df8a-4c06-b229-3fdc44e4f07</code></pre>
 	    <aside class='notes'>La nube siempre es de pago, aunque pueda haber algunas actividades que sean gratuitas. Una cuenta puede tener uno o varios correos electrónicos asignados, con una o varias suscripciones. Esas suscripciones a veces se obtienen mediante "cupones", o corresponden a un "lab" como el patrocinio que tenemos en la UGR.</aside>
 	  </section>
 </section>
