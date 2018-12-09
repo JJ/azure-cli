@@ -46,7 +46,17 @@ src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
 	  <h1 class='fragment'>CLI/SDKs son <strong>libres</strong></h1>
 	</section>
 
-	<section data-background='img/commits.png'><h1>La documentación también es <strong>libre</strong></h1></section>
+	<section data-background='img/commits.png'><h1>La
+          documentación también es <strong>libre</strong></h1>
+        </section>
+
+        <section
+          data-background='https://farm5.staticflickr.com/4917/45349441164_4d2c81972c_k_d.jpg'><h1>Prerrequisitos</h1>
+          <h2 class='fragment'>APIs REST</h2>
+          <h2 class='fragment'>Línea de órdenes Linux</h2>
+        </section>
+          
+          
 
 	<section data-background='https://farm5.staticflickr.com/4855/32138357728_3cd84f40ca_k_d.jpg'><h1>Consigue tu propia cuenta de Azure</h1>
 	  <aside class='notes'>Cuentas gratuitas de un mes, y algunas por patrocinios como el de la UGR. Azure es uno de los "tres grandes", junto con Google o Amazon. En cuestión de soporte al software libre, posiblemente Azure es el mejor. Eso no quiere decir que otros sistemas de cloud no tengan conceptos similares.
@@ -172,7 +182,38 @@ src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
               manuales de jq online. Debería ser más simple hacerlo.</aside>
       
           </section>
-        
+        </section>
+
+        <section> <!-- Service principal -->
+          <section><h1><em>Service principals</em> permiten regular el
+            acceso a servicios</h1>
+            <pre><code>az ad sp create-for-rbac -n "http://azure-cli-tutorial-sp"</code></pre>
+            <h3 class='fragment'>Devuelve: appId, password y <code>tenant</code></h3>
+        <aside class='notes'>Son un URI, por eso llevan el http://
+          delante, para que puedas dividirlo por proyectos, divisiones
+          o como quieras. Tienen también su propio password y
+          demás. Esto te genera un fichero que puedes guardar en JSON
+          o recuperar cuando te dé la gana. Conviene, por ejemplo, que
+          lo guardes en el directorio <code>.azure</code> que deberá
+          estar convenientemente protegido. Como segunda opción, usa
+          variables de entorno, pero no es tan conveniente.</aside>
+          </section>
+
+          <section><h1>Usa directamente el API</h1>
+            <h2>Consigue un token OAuth</h2>
+            <pre><code>curl -X POST -d 'grant_type=client_credentials&client_id=[app-id]\
+    &client_secret=[password de arriba]&resource=https%3A%2F%2Fmanagement.azure.com%2F'
+      https://login.microsoftonline.com/[tenant-id de tu suscripción']/oauth2/token</code></pre>
+
+
+            <aside class='notes'>Se sigue el tutorial que hay [en este
+              artículo](https://medium.com/@mauridb/calling-azure-rest-api-via-curl-eb10a06127). Esto
+              devuelve un JSON, uno de cuyos campos se llama
+              <code>token</code>, y puedes guardar directamente en un
+              fichero en tu <code>.azure</code> o en un sitio más
+              seguro, como ansible vault.</aside>
+          </section>
+        </section>
       </div>
     </div>
 
