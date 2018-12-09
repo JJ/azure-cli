@@ -132,12 +132,21 @@ src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
           </section>
         </section>
 
-        
+        <section> <!-- Seguimos con los conceptos fundamentales. -->
 	  <section><h1>Elige tu <strong>suscripción</strong>
 	    </h1>
 
 	    <pre><code>az account set --subscription c6d4056e-df8a-4c06-b229-3fdc44e4f07</code></pre>
-	    <aside class='notes'>La nube siempre es de pago, aunque pueda haber algunas actividades que sean gratuitas. Una cuenta puede tener uno o varios correos electrónicos asignados, con una o varias suscripciones. Esas suscripciones a veces se obtienen mediante "cupones", o corresponden a un "lab" como el patrocinio que tenemos en la UGR.</aside>
+	    <aside class='notes'>La nube siempre es de pago, aunque
+	    pueda haber algunas actividades que sean gratuitas. Una
+	    cuenta puede tener uno o varios correos electrónicos
+	    asignados, con una o varias suscripciones. Esas
+	    suscripciones a veces se obtienen mediante "cupones", o
+	    corresponden a un "lab" como el patrocinio que tenemos en
+	    la UGR. Las suscripciones se pueden organizar en <a
+	    href='https://docs.microsoft.com/en-us/azure/governance/management-groups/'>grupos
+	      de gestión</a>, que permiten gestionar algunos elementos
+	    conjuntamente.</aside>
 	  </section>
 
           <section data-background='img/vscode.png'>
@@ -147,7 +156,23 @@ src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
               conectarse al mismo.</aside>
           </section>
 
+          <section><h1>Localizando los lugares</h1>
+            <pre><code>az account list-locations
+    | jq 'map( .id |= split("/"))
+      | .[] | [.displayName,.id[4]]'
+            </code></pre>
 
+            <aside class='notes'>Usa jq, que tiene un lenguaje un poco
+              más rico que el <a
+              href='http://jmespath.org/examples.html'>JMESpath</a>
+              que usa el filtro <code>--query</code>, para extraer la
+              información y saber todas las localizaciones que hay
+              disponibles para la cuenta que tiene uno. Pero esto es
+              excesivamente complicado, y hay que mirar un montón de
+              manuales de jq online. Debería ser más simple hacerlo.</aside>
+      
+          </section>
+        
       </div>
     </div>
 
