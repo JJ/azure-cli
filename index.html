@@ -76,15 +76,70 @@ src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
 	    <h2 class='fragment'>⇒Resultado en JSON</h2>
 	  </section>
 
-	  <!-- Continúa con los filtros, queries y diferentes salidas -->
-	  
+        </section>
+
+        <section>  <!-- Continúa con los filtros, queries y diferentes
+          salidas -->
+
+          <section>
+            <h1>Filtrando los resultados</h1>
+            <pre><code>az account list  -o table</code></pre>
+            <img src='img/account-table.png' alt='Tabla con cuentas'>
+            <aside class='notes'><code>-o</code> te ofrece los
+            resultados en diferentes formatos, especialmente en
+            algunos que son más visibles, como este. Luego se puede
+              usar <code>grep</code> para filtrar, si es
+              necesario</aside>
+          </section>
+
+          <section><h1>Ayuda interactiva: <code>az interactive</code></h1>
+            <img src='account-interactive.png' alt='Muestra los formatos'>
+
+            <aside class='notes'>Estos cuatro formatos (c|t)sv y
+              json(con c, si quieres verlo en colores un poquito más
+              claro).</aside>
+            
+          </section>
+
+          <section><h1>Filtrando con <code>jq</code></h1>
+            <pre><code>az vm image list | jq ".[] | [.offer, .publisher]"</code></pre>
+
+            <aside class='notes'>Si ya tienes jq instalado, puedes
+          usarlo para filtrar los resultados. En este caso estamos
+          listando las imágenes de sistemas operativos que tenemos
+          disponibles, sin tener la lista completa. Las imágenes de
+              SOs están divididas por <code>.offer</code>, que es el
+              tipo de sistema operativo, y <code>.publisher</code>,
+              que es la empresa que lo ofrece. Pero hay formas más
+              simples de hacerlo.</aside>
+          </section>
+
+          <section><h1>Usando <code>--query</code></h1>
+            <pre><code>az account list --query "[].[user.name,name]" -o tsv</code></pre>
+            <pre class='fragment'><code>                --query "[].[user.name,name]" -o tabla tabuladores   </code></pre>
+            <pre class='fragment'><code>                --query "[un
+            array].[creamos otro array]"</pre></code>
+
+            <aside class='notes'>Los campos que estamos extrayendo del
+	  JSON siguen el camino al mismo; es un array de hashes, cada
+	      hash tiene un elemento nombre, y otro <code>user</code>,
+	      del cual también extraemos el nombre. Con esto ya hemos
+	  visto tres maneras diferentes de mostrar y filtrar
+	  resultados: usando diferentes formas de salir o usando
+	  filtros o bien externos o bien internos. Estas dos opciones,
+	  --query y -o se pueden aplicar a todas las órdenes que den
+	      un resultado.</aside>
+          </section>
+        </section>
+
+        
 	  <section><h1>Elige tu <strong>suscripción</strong>
 	    </h1>
 
 	    <pre><code>az account set --subscription c6d4056e-df8a-4c06-b229-3fdc44e4f07</code></pre>
 	    <aside class='notes'>La nube siempre es de pago, aunque pueda haber algunas actividades que sean gratuitas. Una cuenta puede tener uno o varios correos electrónicos asignados, con una o varias suscripciones. Esas suscripciones a veces se obtienen mediante "cupones", o corresponden a un "lab" como el patrocinio que tenemos en la UGR.</aside>
 	  </section>
-</section>
+          </section>
 
 
       </div>
