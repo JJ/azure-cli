@@ -190,7 +190,7 @@ src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
             acceso a servicios</h1>
             <pre><code>az ad sp create-for-rbac -n "http://azure-cli-tutorial-sp"</code></pre>
             <h3 class='fragment'>Devuelve: appId, password y <code>tenant</code></h3>
-        <aside class='notes'>Son un URI, por eso llevan el http://
+            <aside class='notes'>Son un URI, por eso llevan el http://
           delante, para que puedas dividirlo por proyectos, divisiones
           o como quieras. Tienen también su propio password y
           demás. Esto te genera un fichero que puedes guardar en JSON
@@ -212,7 +212,58 @@ src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
               devuelve un JSON, uno de cuyos campos se llama
               <code>token</code>, y puedes guardar directamente en un
               fichero en tu <code>.azure</code> o en un sitio más
-              seguro, como ansible vault.</aside>
+              seguro, como ansible vault. En realidad, la herramienta
+              de la línea de órdenes no es más que un interfaz para
+              este API. Una vez que conoces las rutas y como
+              autenticarte, a veces es mucho más sencillo trabajar con
+              él que con la línea de órdenes, sobre todo si hay que
+              procesar el resultado y usarlo más adelante.
+            </aside>
+          </section>
+
+          <section
+            data-background='https://farm2.staticflickr.com/1980/44452205605_6bb7a8941a_k_d.jpg'>
+            <h1>Podría ser más simple</h1>
+            <aside class='notes'>Desgraciadamente, no he hallado la
+            forma de hacerlo usando ninguno de los SDKs, el de Python
+            o el de Node. Por ejemplo, <a
+            href='https://stackoverflow.com/questions/53692957/querying-available-locations-in-azure-sdk-for-node/53693085?noredirect=1#comment94260583_53693085'>esta
+              pregunta en StackOverflow</a> no ha tenido respuesta
+              (que valga).</aside>
+          </section>
+
+        </section>
+
+        <!-- Grupos de recursos -->
+        <section>
+          <section
+            data-background='https://farm5.staticflickr.com/4076/4888757962_5b2ec0df6c_b_d.jpg'>
+            <h1>Los recursos se agrupan</h1>
+            <aside class='notes'>Ya hemos visto diferentes
+        localizaciones, o dónde están físicamente los ordenadores (de
+        otros) que tienen nuestras nubes. Otro concepto importante es
+        el de grupo de recursos, que es previo a la creación de
+        cualquiera y que permite dar acceso, concentrar y agrupar
+              recursos cloud de diferente tipo.</aside>
+          </section>
+
+          <section><h1>Crea un recurso</h1>
+            <pre><code>az group create -l westeurope -n AzureCLITuto</code></pre>
+            <pre class='fragment'><code>az group create -l [lugar]    -n [nombre grupo]</code></pre>
+
+            <aside class='notes'>Los recursos tienen siempre un lugar
+          asignado; todos los servicios de ese recurso van a ir al
+              mismo lugar.</aside>
+          </section>
+
+          <section><h1>Configurando por omisión</h1>
+            <pre><code>az configure --defaults group=AzureCLITuto location=westeurope</code></pre>
+
+            <aside class='notes'>Así estamos seguros de que van a usar
+      siempre estos dos valores por omisión, y no tenemos que hacerlo
+      siempre. Esto se almacena en la configuración de Azure, o sea
+              que no hay que hacerlo por cada uno de los
+              terminales.</aside>
           </section>
         </section>
       </div>
