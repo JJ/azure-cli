@@ -293,14 +293,44 @@ src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
 	    <pre><code>az storage account list -o jsonc \
   --query "[].[sku.name,accessTier]"
 	    </code></pre>
-
+	    <img src='img/storage.png' alt='almacenamiento'>
+	    
 	    <aside class='notes'>el SKU es el tipo de almacenamiento que están usando, y el accessTier corresponde a la rapidez o lentitud.</aside>
+
 	  </section>
-		<section data-background='https://farm2.staticflickr.com/1652/24504181384_da82114f5d_k_d.jpg'><h1>Usemos
-              los <em>blobs</em></h1>
-                </section>
+	  
 	</section>
-        
+
+	<section>
+	  <section data-background='https://farm2.staticflickr.com/1652/24504181384_da82114f5d_k_d.jpg'><h1>Usemos
+              los <em>blobs</em></h1>
+        </section>
+
+	<section><h1>Contenedores para la web</h1>
+	  <pre><code>az extension add --name storage-preview
+az storage blob service-properties update --account-name qrsqcaunldfaiazcliex \
+   --static-website --404-document index.html --index-document index.html
+	  </code></pre>
+	</section>
+	
+	<section><h1>Crea una aplicación estática</h1>
+	  <h2 class='fragment'>Con react native, por ejemplo</h2>
+
+	</section>
+	
+	<section><h1>Despliega</h1>
+	  <code><pre>az storage blob upload-batch -s ./build -d "\$web" --account-name qrsqcaunldfaiazcliex</pre></code>
+	  <h2 class='fragment'>Desplegada <a href='https://qrsqcaunldfaiazcliex.z6.web.core.windows.net/'>aquí</a></h2>
+	</section>
+	</section>
+
+	<section data-background='https://farm5.staticflickr.com/4576/38050651675_4c047f44bd_k_d.jpg'>
+	  <h1>A dónde ir desde aquí</h1>
+	  <h2 class='fragment'>Manejo del CLI desde Ansible</h2>
+	  <h2 class='fragment'>Contenedores, MVs</h2>
+	  <h2 class='fragment'>Abstracción con Terraform</h2>
+        </section>
+	
       </div>
     </div>
 
